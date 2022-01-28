@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+  <title>Death Event Prediction</title>
+</head>
+
+<body background="{{url_for('static', filename='img/dust.png')}}">
+  <h1 class="title">Prediksi Penyebab Risiko Kematian Akibat Penyakit Jantung</h1>
+  <div class="predict-form">
+    <p class="sub-title">
+      Penyakit <b>Kardiovaskular</b> berdasarkan catatan Pasien.
+    </p>
+    <form id="contact" action="{{ url_for('predict') }}" method="POST">
+      <fieldset>
+        <input placeholder="Ketikkan usia Pasien" name="age" type="text" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ketikkan tingkat &quot;Enzim Kreatin Fosfokinase&quot; Pasien" name="c_p" type="text"
+          tabindex="2" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ketikkan presentase &quot;Fraksi Ejeksi&quot; Pasien" name="e_f" type="text" tabindex="3"
+          required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ketikkan tingkat &quot;Trombosit&quot; Pasien" name="plate" type="text" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ketikkan tingkat &quot;Serum Kreatinin&quot; Pasien" name="s_creatinine" type="text"
+          tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ketikkan tingkat &quot;Sodium&quot; Pasien" name="s_sodium" type="text" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Berapa kali Pasien melakukan kontrol tindak lanjut?" name="time" type="text" tabindex="4"
+          required>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Prediksi</button>
+      </fieldset>
+    </form>
+    <p class="message">{{ prediction_text }}</p>
+  </div>
+</body>
+
+</html>
